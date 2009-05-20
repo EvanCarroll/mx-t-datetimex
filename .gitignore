@@ -1,5 +1,7 @@
+META.yml
 MANIFEST
 Makefile
 *.bak
 *.swp
 /[^/]*.tar.gz
+/inc/*
