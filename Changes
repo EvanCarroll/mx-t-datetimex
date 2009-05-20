@@ -1,3 +1,7 @@
+0.06    - Updated distmeta
+        - Migrated to MX:T:DateTime::ButMaintained
+				- Fixed POD to reflect ::ButMaintained
+
 0.05
         - Require a newer version of DateTimex::Easy
           This means we don't have to explicitly state each requirement of DTX:E

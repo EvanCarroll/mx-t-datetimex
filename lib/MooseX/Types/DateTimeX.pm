@@ -1,5 +1,4 @@
 package MooseX::Types::DateTimeX;
-
 use strict;
 use warnings;
 
@@ -7,24 +6,24 @@ use DateTime;
 use DateTime::Duration;
 use DateTimeX::Easy; 
 use Time::Duration::Parse qw(parse_duration);
-use MooseX::Types::DateTime ();
+use MooseX::Types::DateTime::ButMaintained ();
 use MooseX::Types::Moose qw/Num HashRef Str/;
 
 use namespace::clean;
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 use MooseX::Types -declare => [qw( DateTime Duration)];
 
-subtype DateTime, as MooseX::Types::DateTime::DateTime;
+subtype DateTime, as MooseX::Types::DateTime::ButMaintained::DateTime;
 coerce( DateTime,
-    @{ $MooseX::Types::DateTime::coercions{DateTime} },
+    @{ $MooseX::Types::DateTime::ButMaintained::coercions{DateTime} },
     from Str, via { DateTimeX::Easy->new($_) },
 );
 
-subtype Duration, as MooseX::Types::DateTime::Duration;
+subtype Duration, as MooseX::Types::DateTime::ButMaintained::Duration;
 coerce( Duration,
-    @{ $MooseX::Types::DateTime::coercions{"DateTime::Duration"} },
+    @{ $MooseX::Types::DateTime::ButMaintained::coercions{"DateTime::Duration"} },
     from Str, via { 
         DateTime::Duration->new( 
             seconds => parse_duration($_)
@@ -38,7 +37,7 @@ __END__
 
 =head1 NAME
 
-MooseX::Types::DateTimeX - Extensions to L<MooseX::Types::DateTime>
+MooseX::Types::DateTimeX - Extensions to L<MooseX::Types::DateTime::ButMaintained>
 
 =head1 SYNOPSIS
 
@@ -88,7 +87,7 @@ Firstly, this module uses L<DateTimeX::Easy> which is way to more DWIM than any 
 
 =over 4
 
-=item * L<MooseX::Types::DateTime> Replacement for this module -- coercions with less voodoo
+=item * L<MooseX::Types::DateTime::ButMaintained> Replacement for this module -- coercions with less voodoo
 
 =item * L<DateTimeX::Easy> Backend of this module
 
