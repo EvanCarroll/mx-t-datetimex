@@ -20,7 +20,7 @@ test_requires 'Test::use::ok'    => '0.02';
 test_requires 'Test::Exception'  => '0.27';
 test_requires 'Test::More';
 
-repository 'git@github.com:EvanCarroll/mx-t-datetimex.git';
+repository 'git://github.com/EvanCarroll/mx-t-datetimex.git';
 
 auto_install;
 
